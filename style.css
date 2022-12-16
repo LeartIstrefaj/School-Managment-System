@@ -407,6 +407,22 @@ blockquote {
 
 }
 
+.btn-contactUs{
+    width: 20%;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    border-radius: 8px;
+    text-decoration: none;
+    background-color: #274C77;
+    color: #E7ECEF;
+}
+.btn-contactUs:hover{
+    background-color: #2d2d2d;
+    color: #E7ECEF;
+    transition: .5s ease-in-out;
+    box-shadow: 3px 12px 22px 3px #2d2d2d;
+}
 .btn:hover {
     background-color: #2d2d2d;
     transition: .5s ease-in-out;
@@ -442,7 +458,6 @@ blockquote {
 .home-alert {
     font-size: 50px;
 }
-
 /* About Section Page */
 .bg-about {
     width: 100%;
@@ -624,6 +639,7 @@ blockquote {
     margin: 0 auto;
     height: 100%;
     display: flex;
+    flex-direction: column;
     /* flex-wrap: wrap; */
     justify-content: center;
     align-items: center;
