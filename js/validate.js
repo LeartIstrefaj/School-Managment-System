@@ -44,7 +44,7 @@ function login() {
     error_message.innerHTML = text;
     return false;
   }
-  if (password.length <= 4) {
+  if (password.length < 4) {
     text = "Password must be at last 4 characters";
     error_message.innerHTML = text;
     return false;
@@ -82,7 +82,7 @@ function signup() {
     error_message.innerHTML = text;
     return false;
   }
-  if (password.length <= 4) {
+  if (password.length < 4) {
     text = "Password must be at last 4 characters";
     error_message.innerHTML = text;
     return false;
