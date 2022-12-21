@@ -281,7 +281,11 @@ small {
     margin-bottom: 30px;
     letter-spacing: 2.5px;
 }
-
+#error_message{
+    margin: 0 auto;
+    color: red;
+    font-size: 14px;
+}
 .quotes {
     width: 100% !important;
     height: 40vh;

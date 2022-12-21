@@ -13,7 +13,7 @@
 <body>
     <header class="header">
         <div class="logo">
-            <img id="img-logo" src="img/logo.png" alt="logo">
+                <img id="img-logo" src="img/logo.png" alt="logo">
         </div>
         <nav class="navbar">
             <ul class="navbar-list">
@@ -160,13 +160,14 @@
     <div class="content">
         <!-- contact form section -->
         <div class="contact-section" id="contact">
-            <form class="form" action="" method="" autocomplete="off">
+            <!-- <div id="error_message"></div> -->
+            <form class="form" action="" method="" id="myform" onsubmit="return validate();">
                 <h2 class="contact-title">Contact Us!</h2>
-                <input class="input-control" type="text" name="name" id="name" placeholder="Enter your Name" required>
-                <input class="input-control" type="email" name="email" id="email" placeholder="Enter your Email Address"
-                    required>
-                <textarea class="input-control" name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
-                <input class="btn" type="submit" value="Send">
+                <div id="error_message"></div>
+                <input class="input-control" type="text" name="name" id="name" placeholder="Enter your Name">
+                <input class="input-control" type="email" name="email" id="email" placeholder="Enter your Email Address">
+                <textarea class="input-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                <input class="btn" type="submit" value="Send" id="submit">
             </form>
         </div>
     </div>
@@ -217,6 +218,7 @@
 
 
     <script src="js/slider.js"></script>
+    <script src="js/validate.js"></script>
 </body>
 
 </html>
