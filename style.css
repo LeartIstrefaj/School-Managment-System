@@ -626,6 +626,24 @@ blockquote {
     .nav-link {
         font-size: 12px;
     }
+    /* login for mobile: */
+    .login-section-1,
+    .login-section-2{
+        width: 90%;
+    }
+    .form{
+        width: 75%;
+    }
+   .title{
+     font-size: 22px;
+    }
+    .input-control{
+        width: 100%;
+    }
+    .sign-up-link{
+        font-size: 13px;
+    }
+    
 }
 
 
