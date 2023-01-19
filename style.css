@@ -630,6 +630,7 @@ blockquote {
     .login-section-1,
     .login-section-2{
         width: 90%;
+        min-height: 50vh;
     }
     .form{
         width: 75%;
@@ -643,6 +644,7 @@ blockquote {
     .sign-up-link{
         font-size: 13px;
     }
+
     
 }
 
