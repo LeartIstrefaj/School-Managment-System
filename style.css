@@ -644,7 +644,34 @@ blockquote {
     .sign-up-link{
         font-size: 13px;
     }
-
+    .content-footer{
+        display: flex;
+        flex-direction: column;
+        /* flex-wrap: wrap; */
+    }
+    .footer-section-1,.footer-section-2{
+        width: 90%;
+    }
+    .footer-logo{
+        width: 15%;
+    }
+    .description{
+        font-size: 13px;
+        margin-bottom: 10%;
+    }
+    .footer-links{
+        margin-bottom: 10%;
+    }
+    .subtitle-footer{
+        margin-bottom: 7%;
+    }
+    .footer-item{
+        font-size: 15px;
+    } 
+    .social-media-text{
+        font-size: 13px;
+        padding-top: 10px;
+    }
     
 }
 
