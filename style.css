@@ -672,6 +672,35 @@ blockquote {
         font-size: 13px;
         padding-top: 10px;
     }
+
+    /*Services Responsive Mobile*/
+    .services{
+        display: flex;
+        flex-direction: column;
+    }
+    .card-title{
+        font-size: 15px;
+    }
+    .paragraph-cards{
+        font-size: 14px;
+        text-align: center;
+    }
+    .cards{
+        width: 100%;
+    }
+    .cards-1,
+    .cards-2{
+        margin-bottom: 5%;
+    }
+    .subtitle{
+        font-size: 18px;
+    }
+    .under-line{
+        width: 15%;
+    }
+    
+    
+
     
 }
 
