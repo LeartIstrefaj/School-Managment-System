@@ -698,9 +698,33 @@ blockquote {
     .under-line{
         width: 15%;
     }
-    
-    
-
+   .quotes{
+        min-height: 50vh;
+   }
+    .customer{
+        min-height: 50vh;
+       display: flex;
+       flex-direction: column;
+    }
+    .customer-image{
+        width: 25vw;
+        max-height: 15vh;
+        object-fit:cover;
+        margin-bottom: 4%;
+        /* object-position: center; */
+    }
+    blockquote{
+        width: 100%;
+        font-size: 13px;
+        margin-bottom: 5%;
+    }
+    /*section of contact Us-> index page  */
+    .contact-section{
+        min-height: 60vh;
+    }
+    .contact-title{
+        font-size: 22px;
+    }
     
 }
 
