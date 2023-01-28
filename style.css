@@ -739,13 +739,45 @@ blockquote {
         background-color: #274C77;
         color: #E7ECEF;
     }
+    /* section about / responsive mobile*/
     .bg-about{
         height: 30vh;
     }
     .title-about{
         font-size: 30px;
     }
+    .main-paragraph{
+        width: 100%;
+        font-size: 13px;
+    }
+    .button{
+        width: 30%;
+    }
+    .section-one-about{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+    }
+    .article-one{
+        width: 100%;
+    }
+    /* .article-one{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    } */
+    .about-img{
+        margin-bottom: 8%;
+    }
     
+    .paragraph-about{
+        font-size: 13px;
+        width: 100%;
+        margin-bottom: 8%;
+    }
+   
 }
 
 
