@@ -725,6 +725,26 @@ blockquote {
     .contact-title{
         font-size: 22px;
     }
+    .title-slider{
+        font-size: 26px !important;
+    }
+    .btn-contactUs{
+        margin-top: 10%;
+        width: 50% !important;
+        border: none;
+        outline: none;
+        font-size: 13px;
+        border-radius: 8px;
+        text-decoration: none;
+        background-color: #274C77;
+        color: #E7ECEF;
+    }
+    .bg-about{
+        height: 30vh;
+    }
+    .title-about{
+        font-size: 30px;
+    }
     
 }
 
