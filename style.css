@@ -281,11 +281,13 @@ small {
     margin-bottom: 30px;
     letter-spacing: 2.5px;
 }
-#error_message{
+
+#error_message {
     margin: 0 auto;
     color: red;
     font-size: 14px;
 }
+
 .quotes {
     width: 100% !important;
     height: 40vh;
@@ -411,7 +413,7 @@ blockquote {
 
 }
 
-.btn-contactUs{
+.btn-contactUs {
     width: 20%;
     border: none;
     outline: none;
@@ -421,12 +423,14 @@ blockquote {
     background-color: #274C77;
     color: #E7ECEF;
 }
-.btn-contactUs:hover{
+
+.btn-contactUs:hover {
     background-color: #2d2d2d;
     color: #E7ECEF;
     transition: .5s ease-in-out;
     box-shadow: 3px 12px 22px 3px #2d2d2d;
 }
+
 .btn:hover {
     background-color: #2d2d2d;
     transition: .5s ease-in-out;
@@ -462,6 +466,7 @@ blockquote {
 .home-alert {
     font-size: 50px;
 }
+
 /* About Section Page */
 .bg-about {
     width: 100%;
@@ -626,109 +631,138 @@ blockquote {
     .nav-link {
         font-size: 12px;
     }
+
     /* login for mobile: */
     .login-section-1,
-    .login-section-2{
+    .login-section-2 {
         width: 90%;
         min-height: 50vh;
     }
-    .form{
+
+    .form {
         width: 75%;
     }
-   .title{
-     font-size: 22px;
+
+    .title {
+        font-size: 22px;
     }
-    .input-control{
+
+    .input-control {
         width: 100%;
     }
-    .sign-up-link{
+
+    .sign-up-link {
         font-size: 13px;
     }
-    .content-footer{
+
+    /* responsive footer - mobile */
+    .content-footer {
         display: flex;
         flex-direction: column;
         /* flex-wrap: wrap; */
     }
-    .footer-section-1,.footer-section-2{
+
+    .footer-section-1,
+    .footer-section-2 {
         width: 90%;
     }
-    .footer-logo{
+
+    .footer-logo {
         width: 15%;
     }
-    .description{
+
+    .description {
         font-size: 13px;
         margin-bottom: 10%;
     }
-    .footer-links{
+
+    .footer-links {
         margin-bottom: 10%;
     }
-    .subtitle-footer{
+
+    .subtitle-footer {
         margin-bottom: 7%;
     }
-    .footer-item{
+
+    .footer-item {
         font-size: 15px;
-    } 
-    .social-media-text{
+    }
+
+    .social-media-text {
         font-size: 13px;
         padding-top: 10px;
     }
 
     /*Services Responsive Mobile*/
-    .services{
+    .services {
         display: flex;
         flex-direction: column;
     }
-    .card-title{
+
+    .card-title {
         font-size: 15px;
     }
-    .paragraph-cards{
+
+    .paragraph-cards {
         font-size: 14px;
         text-align: center;
     }
-    .cards{
+
+    .cards {
         width: 100%;
     }
+
     .cards-1,
-    .cards-2{
+    .cards-2 {
         margin-bottom: 5%;
     }
-    .subtitle{
+
+    .subtitle {
         font-size: 18px;
     }
-    .under-line{
+
+    .under-line {
         width: 15%;
     }
-   .quotes{
+
+    .quotes {
         min-height: 50vh;
-   }
-    .customer{
-        min-height: 50vh;
-       display: flex;
-       flex-direction: column;
     }
-    .customer-image{
+
+    .customer {
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .customer-image {
         width: 25vw;
         max-height: 15vh;
-        object-fit:cover;
+        object-fit: cover;
         margin-bottom: 4%;
         /* object-position: center; */
     }
-    blockquote{
+
+    blockquote {
         width: 100%;
         font-size: 13px;
         margin-bottom: 5%;
     }
+
     /*section of contact Us-> index page  */
-    .contact-section{
+    .contact-section {
         min-height: 60vh;
     }
-    .contact-title{
+
+    .contact-title {
         font-size: 22px;
     }
-    .title-slider{
+
+    .title-slider {
         font-size: 26px !important;
     }
-    .btn-contactUs{
+
+    .btn-contactUs {
         margin-top: 10%;
         width: 50% !important;
         border: none;
@@ -739,45 +773,133 @@ blockquote {
         background-color: #274C77;
         color: #E7ECEF;
     }
+
     /* section about / responsive mobile*/
-    .bg-about{
+    .bg-about {
         height: 30vh;
     }
-    .title-about{
+
+    .title-about {
         font-size: 30px;
     }
-    .main-paragraph{
+
+    .main-paragraph {
         width: 100%;
         font-size: 13px;
     }
-    .button{
+
+    .button {
         width: 30%;
     }
-    .section-one-about{
+
+    .section-one-about {
         width: 100%;
         display: flex;
         flex-direction: column;
         /* justify-content: center; */
         align-items: center;
     }
-    .article-one{
+
+    .article-one {
         width: 100%;
     }
+
     /* .article-one{
         width: 100%;
         display: flex;
         flex-direction: column;
     } */
-    .about-img{
+    .about-img {
         margin-bottom: 8%;
     }
-    
-    .paragraph-about{
+
+    .paragraph-about {
         font-size: 13px;
         width: 100%;
         margin-bottom: 8%;
     }
-   
+
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    .login-section-1,
+    .login-section-2 {
+        width: 70%;
+        min-height: 42vh;
+    }
+
+    .form {
+        width: 75%;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .input-control {
+        width: 100%;
+    }
+
+    .sign-up-link {
+        font-size: 13px;
+    }
+
+    /* responsive footer - mobile */
+    .content-footer {
+        display: flex;
+        flex-direction: column;
+        /* flex-wrap: wrap; */
+    }
+
+    .footer-section-1,
+    .footer-section-2 {
+        width: 90%;
+    }
+
+    .footer-logo {
+        width: 15%;
+    }
+
+    .description {
+        font-size: 13px;
+        margin-bottom: 10%;
+    }
+
+    .footer-links {
+        margin-bottom: 10%;
+    }
+
+    .subtitle-footer {
+        margin-bottom: 7%;
+    }
+
+    .footer-item {
+        font-size: 15px;
+    }
+
+    .social-media-text {
+        font-size: 13px;
+        padding-top: 10px;
+    }
+
+    /* services section for tablets */
+    .paragraph-cards {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .cards {
+        /* width: 100%; */
+        /* padding: 40px; */
+        display: flex;
+        justify-content: stretch;
+    }
+    .subtitle{
+        font-size: 20px;
+    }
+
 }
 
 
@@ -801,7 +923,7 @@ blockquote {
     align-items: center;
     font-size: 35px;
     color: #E7ECEF;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
     letter-spacing: 1.5px;
 
 
