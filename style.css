@@ -859,7 +859,7 @@ blockquote {
     }
 
     .footer-logo {
-        width: 15%;
+        width: 13% !important;
     }
 
     .description {
@@ -892,14 +892,77 @@ blockquote {
 
     .cards {
         /* width: 100%; */
-        /* padding: 40px; */
         display: flex;
         justify-content: stretch;
     }
     .subtitle{
         font-size: 20px;
     }
+    
+    /* testmonials */
+    .quotes{
+        height: 25vh;
+        display: flex;
+        align-items: center;
 
+    }
+    .customer{
+        height: 23vh;
+    }
+    .customer-image{
+        width: 30%;
+        max-height: 20vh;
+        object-fit: cover;
+        object-position: center;
+    }
+    blockquote{
+        font-size: 13px;
+    }
+
+    /* section for contact Us */
+    .contact-section{
+        min-height: 60vh;
+    }
+    .contact-title{
+        font-size: 25px;
+    }
+    
+    .title-slider {
+        font-size: 26px !important;
+    }
+
+    .btn-contactUs {   
+        margin-top: 10%;    
+        width: 30% !important;
+    }
+
+    /* About sections */
+    .bg-about {
+        height: 30vh;
+    }
+    .title-about {
+        font-size: 30px;
+    }
+
+    .main-paragraph {
+        width: 100%;
+        font-size: 13px;
+    }
+
+    .button {
+        width: 30%;
+    }
+    .section-one-about {
+        margin-top: 5%;
+        width: 100%;
+        display: flex;
+        /* outline: 1px solid black; */
+        /* justify-content: center; */
+    }
+    .paragraph-about{
+        /* width: 100%; */
+        font-size: 13px;
+    }
 }
 
 
