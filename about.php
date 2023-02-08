@@ -18,9 +18,9 @@
         </div>
         <nav class="navbar">
             <ul class="navbar-list">
-                <li class="nav-item"><a id="first" class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class=" first nav-link" href="about.html">About Us</a></li>
-                <li class="nav-item"><a class=" last nav-link" href="sign-in.html">Sign In</a></li>
+                <li class="nav-item"><a id="first" class="nav-link" href="./index.php">Home</a></li>
+                <li class="nav-item"><a class=" first nav-link" href="./about.php">About Us</a></li>
+                <li class="nav-item"><a class=" last nav-link" href="./sign-in.php">Sign In</a></li>
             </ul>
         </nav>
     </header>
@@ -38,7 +38,7 @@
             veritatis, aut numquam obcaecati nihil, tempore vero. Consectetur debitis nostrum sit eum iusto!. Lorem
             ipsum dolor sit amet consectetur adipisicing elit. Dignissimos velit porro ex fuga itaque dolorum eius omnis
             earum id corporis atque unde, consequatur quas sint molestiae, eos numquam assumenda distinctio.</p>
-        <a href="sign-in.html" class="btn button">Login</a>
+        <a href="./sign-in.php" class="btn button">Login</a>
         <div class="section-one-about">
             <div class="article-one">
                 <img class="about-img" src="img/bg-about2.jpg" img-1">
@@ -87,8 +87,8 @@
                 <h3 class="subtitle-footer">Footer links</h3>
                 <ul class="footer-links">
                     <li class="footer-item"><a class="footer-link" href="/">Home</a></li>
-                    <li class="footer-item"><a class="footer-link" href="about.html">About Us</a></li>
-                    <li class="footer-item"><a class="footer-link" href="sign-in.html">Sign In</a></li>
+                    <li class="footer-item"><a class="footer-link" href="about.php">About Us</a></li>
+                    <li class="footer-item"><a class="footer-link" href="sign-in.php">Sign In</a></li>
                 </ul>
             </div>
             <div class="footer-section-2">

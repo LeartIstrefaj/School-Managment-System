@@ -16,9 +16,9 @@
         </div>
         <nav class="navbar">
             <ul class="navbar-list">
-                <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                <li class="nav-item"><a class="last nav-link" href="sign-in.html">Sign In</a></li>
+                <li class="nav-item"><a class="nav-link" href="./index.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.php">About Us</a></li>
+                <li class="nav-item"><a class="last nav-link" href="sign-in.php">Sign In</a></li>
             </ul>
         </nav>
     </header>
@@ -33,7 +33,7 @@
             <input class="input-control" type="password" name="password" id="password"
                 placeholder="Enter your Password">
             <input class="btn" type="submit" value="SIGN UP" id="submit">
-            <a href="sign-in.html" class="sign-up-link">Already have an account? Log In</a>
+            <a href="sign-in.php" class="sign-up-link">Already have an account? Log In</a>
         </form>
     </div>
 

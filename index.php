@@ -17,10 +17,10 @@
         </div>
         <nav class="navbar">
             <ul class="navbar-list">
-                <li class="nav-item"><a class="first nav-link" href="./index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="first nav-link" href="./index.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.php">About Us</a></li>
                 <!-- <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li> -->
-                <li class="nav-item"><a class="last nav-link" href="sign-in.html">Sign In</a></li>
+                <li class="nav-item"><a class="last nav-link" href="sign-in.php">Sign In</a></li>
             </ul>
         </nav>
     </header>
@@ -187,8 +187,8 @@
                 <h3 class="subtitle-footer">Footer links</h3>
                 <ul class="footer-links">
                     <li class="footer-item"><a class="footer-link" href="/">Home</a></li>
-                    <li class="footer-item"><a class="footer-link" href="about.html">About Us</a></li>
-                    <li class="footer-item"><a class="footer-link" href="sign-in.html">Sign In</a></li>
+                    <li class="footer-item"><a class="footer-link" href="about.php">About Us</a></li>
+                    <li class="footer-item"><a class="footer-link" href="sign-in.php">Sign In</a></li>
                 </ul>
             </div>
             <div class="footer-section-2">
