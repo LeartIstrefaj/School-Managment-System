@@ -388,7 +388,23 @@ blockquote {
     margin-bottom: 20px;
     text-align: center;
 }
-
+#role{
+    margin: auto;
+    width: 40%;
+    background-color: #A3CEF1 !important;
+    color: #6096BA;
+    border-radius: 3%;
+    border: none;
+    outline: none;
+    padding: 4px;
+}
+#role:hover{
+    transition: .5s ease !important;
+    color: #2d2d2d;
+}
+#role option:hover{
+    background-color: #274C77;
+}
 .btn {
     width: 30%;
     padding: 10px 10px;
@@ -401,7 +417,6 @@ blockquote {
     text-align: center;
     margin: 0 auto;
     cursor: pointer;
-
 }
 
 .button {

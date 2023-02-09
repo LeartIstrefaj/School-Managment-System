@@ -19,17 +19,14 @@
             <ul class="navbar-list">
                 <li class="nav-item"><a class="first nav-link" href="./index.php">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="about.php">About Us</a></li>
-                <!-- <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li> -->
                 <li class="nav-item"><a class="last nav-link" href="sign-in.php">Sign In</a></li>
             </ul>
         </nav>
     </header>
-    <!-- <div class="mainly"> -->
-    <!-- <h1 class="home-alert">Coming Soon...</h1> -->
+    
 
     <div class="slideshow-container">
         <div class="mySlides fade slider-img">
-            <!-- <img class="slider-img overlay" src="img/school1.jpg" style="width:100%"> -->
 
             <div class="slider-img-1">
                 <h1 class="title-slider">Education is our passport to the future, for tomorrow belongs to the people who
@@ -40,7 +37,6 @@
         </div>
 
         <div class="mySlides fade slider-img">
-            <!-- <img class="slider-img overlay" src="img/school2.jpg" style="width:100%"> -->
             <div class="slider-img-2">
                 <h1 class="title-slider">Education is our passport to the future, for tomorrow belongs to the people who
                     prepare for it today
@@ -52,7 +48,6 @@
         </div>
 
         <div class="mySlides fade slider-img">
-            <!-- <img class="slider-img overlay" src="img/school3.jpg" style="width:100%"> -->
             <div class="slider-img-3">
                 <h1 class="title-slider">Education is our passport to the future, for tomorrow belongs to the people who
                     prepare for it today
@@ -63,7 +58,6 @@
         </div>
 
         <div class="mySlides fade slider-img">
-            <!-- <img class="slider-img overlay" src="img/school6.jpg" style="width:100%"> -->
             <div class="slider-img-5">
                 <h1 class="title-slider">Education is our passport to the future, for tomorrow belongs to the people who
                     prepare for it today
@@ -74,7 +68,6 @@
         </div>
 
         <div class="mySlides fade slider-img">
-            <!-- <img class="slider-img overlay" src="img/school6.jpg" style="width:100%"> -->
             <div class="slider-img-6">
                 <h1 class="title-slider">Education is our passport to the future, for tomorrow belongs to the people who
                     prepare for it today
@@ -84,7 +77,6 @@
             </div>
         </div>
         <div class="mySlides fade slider-img">
-            <!-- <img class="slider-img " src="img/school6.jpg" style="width:100%"> -->
             <div class="slider-img-7">
                 <h1 class="title-slider">Education is our passport to the future, for tomorrow belongs to the people who
                     prepare for it today
@@ -109,7 +101,7 @@
         <span class="dot" onclick="currentSlide(6)"></span>
     </div>
 
-    <!-- </div> -->
+
     <div class="content">
 
         <div class="section-services m-1">
@@ -158,9 +150,9 @@
     </div>
 
     <div class="content">
-        <!-- contact form section -->
+        
         <div class="contact-section" id="contact">
-            <!-- <div id="error_message"></div> -->
+            
             <form class="form" action="" method="" id="myform" onsubmit="return validate();">
                 <h2 class="contact-title">Contact Us!</h2>
                 <div id="error_message"></div>
@@ -174,7 +166,6 @@
     <footer class="footer">
         <div class="content-footer">
             <div class="footer-section-1">
-                <!-- <span class="footer-logo">SMS</span> -->
                 <img class="footer-logo" src="img/logo-footer.png" alt="footer-logo">
                 <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum a repellat magnam
                     cum

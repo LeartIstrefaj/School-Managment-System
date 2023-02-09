@@ -1,3 +1,45 @@
+<?php 
+    session_start();
+    require('Database.php');
+    $db_host = "mysql:host=localhost;dbname=sms";
+    $db_user = "root";
+    $db_password = "";
+    $db = new Database($db_host,$db_user,$db_password);
+    
+    if(isset($_POST['login'])){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        $sql = "SELECT * FROM  `users`";
+        $users = $db->select($sql, [$username,$password]);
+        $found = false;
+        $user_id = null;
+
+        foreach($users as $user){ 
+            if($user['username'] == $username &&  $user['password'] == $password){
+                $found = true;
+                $user_id = $user['id'];
+                break;
+            }
+           
+        }
+        if($found){
+           $_SESSION['loggedin'] = true;
+           $_SESSION['email'] = $username;
+           $_SESSION['user_id'] = $user_id;
+           header("Location: dashboard.php");
+        }
+        else{
+            echo "<script>
+            alert('User is not registred!.');
+            </script>";
+        }
+        
+            
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,13 +66,13 @@
     </header>
     <!-- section of  Login form-->
     <div class="login-section-1">
-        <form class="form" action="" method="" id="myform" onsubmit="return login();">
+        <form class="form" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" id="myform" onsubmit="return login();">
             <h2 class="title">Login !</h2>
             <div id="error_message"></div>
-            <input class="input-control" type="email" name="email" id="email" placeholder="Enter your Email Address">
+            <input class="input-control" type="text" name="username" id="email" placeholder="Enter your Email Address">
             <input class="input-control" type="password" name="password" id="password"
                 placeholder="Enter your Password">
-            <input class="btn" type="submit" value="LOGIN" id="submit">
+            <input class="btn" type="submit" name="login" value="LOGIN" id="submit">
             <a href="sign-up.php" class="sign-up-link">Sign Up | Create Account</a>
         </form>
     </div>
