@@ -19,15 +19,8 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout'){
 
 $db = new Database($db_host,$db_user,$db_password);
 $user_controller = new UserController($db);
-$students = $user_controller->get('student');
+$professors = $user_controller->get('professor');
 
-
-if(isset($_POST['submit'])){
-    $nr_index = $_POST['nr_index'];
-    $id = $_POST['student_id'];
-    $user_controller->update($id,['nr_index' => $nr_index]);
-    header("Location: students.php");
-}
 
 if(isset($_GET['action']) && $_GET['action'] == 'delete'){
     if(isset($_GET['student_id']) && $_GET['student_id'] > 0){
@@ -64,7 +57,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
     </div>
 
     <div class="container">
-        <?php  if(count($students) > 0) {?>
+        <?php  if(count($professors) > 0) {?>
             <div class="table-responsive">
             <table class="table table-bordered">
                 <tr>
@@ -74,50 +67,24 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
                     <th>Nr.index</th>
                     <th></th>
                 </tr>
-                <?php foreach($students as $student){ ?>
+                <?php foreach($professors as $professor){ ?>
                     <tr>
-                        <td><?= $student['id'] ?></td>
-                        <td><?= $student['name'] ?></td>
-                        <td><?= $student['username'] ?></td>
-                        <td><?= (!empty($student['nr_index'])) ? $student['nr_index'] : "N/D"  ?></td>
+                        <td><?= $professor['id'] ?></td>
+                        <td><?= $professor['name'] ?></td>
+                        <td><?= $professor['username'] ?></td>
+                        <td><?= (!empty($professor['nr_index'])) ? $professor['nr_index'] : "N/D"  ?></td>
                         <td>
-                            <a href="?action=edit&student_id=<?= $student['id'] ?>" id="show-modal-btn" class="btn btn-sm btn-primary">Edit</a>
-                            <a href="?action=delete&student_id=<?= $student['id'] ?>" onclick="return confirm('Are you sure!')"  class="btn btn-sm btn-danger">Delete</a>
+                            <a href="?action=delete&student_id=<?= $professor['id'] ?>" onclick="return confirm('Are you sure!')"  class="btn btn-sm btn-danger">Delete</a>
                         </td>
                     </tr>
                  <?php } ?>
             </table>
             </div>
         <?php } else{ ?>
-            <p>0 Students</p>
+            <p>0 Professors</p>
         <?php } ?>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
-        <div class="modal-dialog"> 
-            <div class="modal-content">
-                <form action="<?= $_SERVER['PHP_SELF']  ?>" method="POST">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModal">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="nr_index" class="form-label">Nr.Index</label>
-                        <input type="text" name="nr_index" class="form-control id="nr_index" />
-                        <input type="hidden" name="student_id" value="<?= $_GET['student_id'] ?>" />    
-                    </div>
-              
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" name="submit" class="btn btn-primary">Edit</button>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
 </body>

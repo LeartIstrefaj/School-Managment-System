@@ -31,7 +31,8 @@ function validate() {
 
 
 function login() {
-  var email = document.getElementById("email").value;
+  // var email = document.getElementById("email").value;
+  var email = document.getElementById("username").value;
   var password = document.getElementById("password").value;
   var error_message = document.getElementById("error_message");
 

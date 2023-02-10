@@ -69,10 +69,10 @@
         <form class="form" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" id="myform" onsubmit="return login();">
             <h2 class="title">Login !</h2>
             <div id="error_message"></div>
-            <input class="input-control" type="text" name="username" id="email" placeholder="Enter your Email Address">
+            <input class="input-control" type="text" name="username" id="username" placeholder="Enter your Email Address">
             <input class="input-control" type="password" name="password" id="password"
                 placeholder="Enter your Password">
-            <input class="btn" type="submit" name="login" value="LOGIN" id="submit">
+            <input class="btn" type="submit" id="submit" name="login" value="LOGIN">
             <a href="sign-up.php" class="sign-up-link">Sign Up | Create Account</a>
         </form>
     </div>

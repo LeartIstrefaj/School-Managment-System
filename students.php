@@ -95,7 +95,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
 
     <!-- Modal -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
-        <div class="modal-dialog"> 
+        <div class="modal-dialog">
             <div class="modal-content">
                 <form action="<?= $_SERVER['PHP_SELF']  ?>" method="POST">
                 <div class="modal-header">
