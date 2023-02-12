@@ -2,7 +2,7 @@
 
 session_start();
 require('Database.php');
-require('UserController.php');
+require('CRUD.php');
 
 $db_host = "mysql:host=localhost;dbname=sms";
 $db_user = "root";
@@ -18,14 +18,14 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout'){
 }
 
 $db = new Database($db_host,$db_user,$db_password);
-$user_controller = new UserController($db);
-$professors = $user_controller->get('professor');
+$crud = new CRUD($db);
+$professors = $crud->read('users', ['role' => 'professor']);
 
 
 if(isset($_GET['action']) && $_GET['action'] == 'delete'){
-    if(isset($_GET['student_id']) && $_GET['student_id'] > 0){
-        $user_controller->delete($_GET['student_id']);
-        header("Location: students.php");
+    if(isset($_GET['id']) && $_GET['id'] > 0){
+        $crud->delete('users',['id' => $_GET['id']]);
+        header("Location: professors.php");
     }
 }
 
@@ -74,7 +74,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
                         <td><?= $professor['username'] ?></td>
                         <td><?= (!empty($professor['nr_index'])) ? $professor['nr_index'] : "N/D"  ?></td>
                         <td>
-                            <a href="?action=delete&student_id=<?= $professor['id'] ?>" onclick="return confirm('Are you sure!')"  class="btn btn-sm btn-danger">Delete</a>
+                            <a href="?action=delete&id=<?= $professor['id'] ?>" onclick="return confirm('Are you sure!')"  class="btn btn-sm btn-danger">Delete</a>
                         </td>
                     </tr>
                  <?php } ?>

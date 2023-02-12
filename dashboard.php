@@ -2,8 +2,8 @@
 
 session_start();
 require('Database.php');
-require('UserController.php');
-require('StudentController.php');
+// require('UserController.php');
+require('CRUD.php');
 
 $db_host = "mysql:host=localhost;dbname=sms";
 $db_user = "root";
@@ -19,11 +19,13 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout'){
 }
 
 $db = new Database($db_host,$db_user,$db_password);
-$user_controller = new UserController($db);
-$user = $user_controller->getUserById($_SESSION['user_id']);
+$crud = new CRUD($db);
+$user = $crud->read('users',['id' => $_SESSION['user_id']])[0];
 
-$nr_students = count($user_controller->get('student')); 
-$nr_professors = count($user_controller->get('professor')); 
+$students = count($crud->read('users',['role' => 'student'])); 
+$professors = count($crud->read('users',['role' => 'professor'])); 
+$semesters = count($crud->read('semester')); 
+$subjects = count($crud->read('subjects')); 
 
 
 ?>
@@ -57,27 +59,27 @@ $nr_professors = count($user_controller->get('professor'));
     <div class="container d-flex justify-content-between">
         <div class="card w-100 mx-3">
             <div class="card-body">
-                <p><?= $nr_students ?> Student<?= ($nr_students > 1) ? 's' : ''?></p>
+                <p><?= $students ?> Student<?= ($students > 1) ? 's' : ''?></p>
             <a href="students.php" class="btn btn-outline-danger">Details</a>
             </div>
         </div>
 
         <div class="card w-100 mx-3">
             <div class="card-body">
-                <p><?= $nr_professors ?> Professor<?= ($nr_professors > 1) ? 's' : ''?></p>
+                <p><?= $professors ?> Professor<?= ($professors > 1) ? 's' : ''?></p>
             <a href="professors.php" class="btn btn-outline-danger">Details</a>
             </div>
         </div>
         <div class="card w-100 mx-3">
             <div class="card-body">
-                <p>0 Semesters</p>
-            <a href="" class="btn btn-outline-danger">Details</a>
+                <p><?= $semesters ?> Semester<?= ($semesters > 1) ? 's' : '' ?></p>
+            <a href="semesters.php" class="btn btn-outline-danger">Details</a>
             </div>
         </div>
         <div class="card w-100 mx-3">
             <div class="card-body">
-                <p>0 Subjects</p>
-            <a href="" class="btn btn-outline-danger">Details</a>
+                <p><?= $subjects ?> Subject<?= ($subjects > 1) ? 's' : '' ?></p>
+            <a href="subjects.php" class="btn btn-outline-danger">Details</a>
             </div>
         </div>
         <div class="card w-100 mx-3">

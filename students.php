@@ -2,7 +2,7 @@
 
 session_start();
 require('Database.php');
-require('UserController.php');
+require('CRUD.php');
 
 $db_host = "mysql:host=localhost;dbname=sms";
 $db_user = "root";
@@ -18,20 +18,20 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout'){
 }
 
 $db = new Database($db_host,$db_user,$db_password);
-$user_controller = new UserController($db);
-$students = $user_controller->get('student');
+$crud = new CRUD($db);
+$students = $crud->read('users',['role' => 'student']);
 
 
 if(isset($_POST['submit'])){
     $nr_index = $_POST['nr_index'];
     $id = $_POST['student_id'];
-    $user_controller->update($id,['nr_index' => $nr_index]);
+    $crud->update('users', ['nr_index' => $nr_index],  ['id' => $id]);
     header("Location: students.php");
 }
 
 if(isset($_GET['action']) && $_GET['action'] == 'delete'){
     if(isset($_GET['student_id']) && $_GET['student_id'] > 0){
-        $user_controller->delete($_GET['student_id']);
+        $crud->delete("users", ['id'=> $_GET['student_id']]);
         header("Location: students.php");
     }
 }
@@ -81,7 +81,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
                         <td><?= $student['username'] ?></td>
                         <td><?= (!empty($student['nr_index'])) ? $student['nr_index'] : "N/D"  ?></td>
                         <td>
-                            <a href="?action=edit&student_id=<?= $student['id'] ?>" id="show-modal-btn" class="btn btn-sm btn-primary">Edit</a>
+                            <a href="?action=edit&student_id=<?= $student['id'] ?>" class="btn btn-sm btn-primary">Edit</a>
                             <a href="?action=delete&student_id=<?= $student['id'] ?>" onclick="return confirm('Are you sure!')"  class="btn btn-sm btn-danger">Delete</a>
                         </td>
                     </tr>

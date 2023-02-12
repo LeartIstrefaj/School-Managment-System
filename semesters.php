@@ -1,8 +1,7 @@
 <?php
-
 session_start();
 require('Database.php');
-require('UserController.php');
+require('CRUD.php');
 
 $db_host = "mysql:host=localhost;dbname=sms";
 $db_user = "root";
@@ -17,22 +16,32 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout'){
     header("Location: sign-in.php");
 }
 
+
 $db = new Database($db_host,$db_user,$db_password);
-$user_controller = new UserController($db);
-$students = $user_controller->get('student');
+$crud = new CRUD($db);
+$semesters = $crud->read('semester');
 
 
 if(isset($_POST['submit'])){
-    $nr_index = $_POST['nr_index'];
-    $id = $_POST['student_id'];
-    $user_controller->update($id,['nr_index' => $nr_index]);
-    header("Location: students.php");
+    $title = $_POST['title'];
+    $id = $_POST['id'];
+    $crud->update('semester', ['title' => $title],['id'=> $id]);
+    header("Location: semesters.php");
+
+}
+
+if(isset($_GET['action']) && $_GET['action'] == 'edit'){
+    if(isset($_GET['id']) && $_GET['id'] > 0){
+        $semester = $crud->read('semester', ['id'=> $_GET['id']])[0];
+        $title = $semester['title'];
+        // header("Location: semesters.php");
+    }
 }
 
 if(isset($_GET['action']) && $_GET['action'] == 'delete'){
-    if(isset($_GET['student_id']) && $_GET['student_id'] > 0){
-        $user_controller->delete($_GET['student_id']);
-        header("Location: students.php");
+    if(isset($_GET['id']) && $_GET['id'] > 0){
+        $crud->delete($_GET['id']);
+        header("Location: semesters.php");
     }
 }
 
@@ -64,36 +73,32 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
     </div>
 
     <div class="container">
-        <?php  if(count($students) > 0) {?>
+        <?php  if(count($semesters) > 0) {?>
             <div class="table-responsive">
             <table class="table table-bordered">
                 <tr>
                     <th>#</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Nr.index</th>
+                    <th>No.semesters</th>
                     <th></th>
                 </tr>
-                <?php foreach($students as $student){ ?>
+                <?php foreach($semesters as $semester){ ?>
                     <tr>
-                        <td><?= $student['id'] ?></td>
-                        <td><?= $student['name'] ?></td>
-                        <td><?= $student['username'] ?></td>
-                        <td><?= (!empty($student['nr_index'])) ? $student['nr_index'] : "N/D"  ?></td>
+                        <td><?= $semester['id'] ?></td>
+                        <td><?= $semester['title'] ?></td>
                         <td>
-                            <a href="?action=edit&student_id=<?= $student['id'] ?>" id="show-modal-btn" class="btn btn-sm btn-primary">Edit</a>
-                            <a href="?action=delete&student_id=<?= $student['id'] ?>" onclick="return confirm('Are you sure!')"  class="btn btn-sm btn-danger">Delete</a>
+                            <a href="?action=edit&id=<?= $semester['id'] ?>" class="btn btn-sm btn-primary">Edit</a>
+                            <a href="?action=delete&id=<?= $semester['id'] ?>" onclick="return confirm('Are you sure!')"  class="btn btn-sm btn-danger">Delete</a>
                         </td>
                     </tr>
                  <?php } ?>
             </table>
             </div>
         <?php } else{ ?>
-            <p>0 Students</p>
+            <p>0 Semesters</p>
         <?php } ?>
     </div>
 
-    <!-- Modal -->
+    <!-- Update modal -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
         <div class="modal-dialog"> 
             <div class="modal-content">
@@ -104,13 +109,14 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="nr_index" class="form-label">Nr.Index</label>
-                        <input type="text" name="nr_index" class="form-control id="nr_index" />
-                        <input type="hidden" name="student_id" value="<?= $_GET['student_id'] ?>" />    
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" name="title" class="form-control" id="title" value="<?= (!empty($title)) ? $title : "" ?>" />
+
                     </div>
               
                 </div>
                 <div class="modal-footer">
+                    <input type="hidden" name="id" value="<?= $_GET['id'] ?>" />   
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" name="submit" class="btn btn-primary">Edit</button>
                 </div>
