@@ -43,8 +43,17 @@ if(isset($_POST['update_btn'])){
 
 if(isset($_GET['action']) && $_GET['action'] == 'delete'){
     if(isset($_GET['id']) && $_GET['id'] > 0){
-        $crud->delete($_GET['id']);
-        header("Location: semesters.php");
+        $crud->delete("subjects", ['id'=> $_GET['id']]);
+        header("Location: subjects.php");
+    }
+}
+
+if(isset($_GET['action']) && $_GET['action'] == 'edit'){
+    if(isset($_GET['id']) && $_GET['id'] > 0){
+        $subject = $crud->read('subjects',['id'=> $_GET['id']])[0];
+        $subject_title = $subject['title'];
+        $subject_professor_id = $subject['professor_id'];
+        $subject_semester_id = $subject['semester_id'];
     }
 }
 
@@ -171,7 +180,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="title" class="form-label">Subject</label>
-                        <input type="text" name="title" class="form-control" id="title" /> 
+                        <input type="text" name="title" class="form-control" id="title" value="<?= $subject_title ?>" /> 
                     </div>
 
                     <div class="mb-3">
@@ -181,7 +190,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
                             <?php if(count($semesters)) {
                                  foreach ($semesters as $semester) {
                                     ?>
-                                    <option value="<?= $semester['id'] ?>"><?= $semester['title'] ?></option>
+                                    <option value="<?php echo $semester['id']; ?>"<?php if($subject_semester_id == $semester['id']) echo 'selected'; ?>><?php echo $semester['title']; ?></option>
                                 <?php 
                                     } 
                                 }
@@ -195,7 +204,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
                             <?php if(count($professors)) {
                                  foreach ($professors as $professor) {
                                     ?>
-                                    <option value="<?= $professor['id'] ?>"><?= $professor['name']." ".$professor['surname'] ?></option>
+                                    <option value="<?= $professor['id'] ?>"<?php if($subject_professor_id == $professor['id']) echo 'selected'; ?>><?= $professor['name']." ".$professor['surname'] ?></option>
                                 <?php 
                                     } 
                                 }
