@@ -37,55 +37,59 @@ $subjects = count($crud->read('subjects'));
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-<body>
-    
+<body class="bg-color-2">
+
     <div class="container my-3">
+
         <div class="d-flex justify-content-between h-100 align-items-center">
             <div class="logo">
-            <a href="dashboard.php"><img src="img/logo.png" alt=""></a>
+            <a href="dashboard.php"><img src="img/logo-footer.png" alt=""></a>
             </div>
-            <div class="profile">
-                <p><?= $_SESSION['email'] ?>
-                <span><?= $user['role'] ?></span>
-                <a href="?action=logout">Logout</a>
-                </p>
+            <div class="row"> 
+            <div class="d-flex justify-content-between h-100 align-items-center profile mb-4">
+                <span class="color role"><?= $_SESSION['email']?></span>
+                <span class="ms-3 color role-2"> <?= $user['role'] ?></span> 
+                <a class="ms-3 btn btn-warning btn-2" href="?action=logout">Logout</a>
+            
             </div>
-        </div>
+</div>
+</div>
     </div>
 
     <?php  if($user['role'] == "admin") { ?>
     <div class="container d-flex justify-content-between">
-        <div class="card w-100 mx-3">
+        <div class="bg-color card w-100 mx-3">
             <div class="card-body">
-                <p><?= $students ?> Student<?= ($students > 1) ? 's' : ''?></p>
-            <a href="students.php" class="btn btn-outline-danger">Details</a>
+                <p class="color p-dashboard"><?= $students ?> Student<?= ($students > 1) ? 's' : ''?></p>
+            <a href="students.php" class="btn-5 btn ">Details</a>
             </div>
         </div>
 
-        <div class="card w-100 mx-3">
+        <div class="bg-color card w-100 mx-3">
             <div class="card-body">
-                <p><?= $professors ?> Professor<?= ($professors > 1) ? 's' : ''?></p>
-            <a href="professors.php" class="btn btn-outline-danger">Details</a>
+                <p class="p-dashboard"><?= $professors ?> Professor<?= ($professors > 1) ? 's' : ''?></p>
+            <a href="professors.php" class="btn-5 btn ">Details</a>
             </div>
         </div>
-        <div class="card w-100 mx-3">
+        <div class="bg-color card w-100 mx-3">
             <div class="card-body">
-                <p><?= $semesters ?> Semester<?= ($semesters > 1) ? 's' : '' ?></p>
-            <a href="semesters.php" class="btn btn-outline-danger">Details</a>
+                <p class="p-dashboard"><?= $semesters ?> Semester<?= ($semesters > 1) ? 's' : '' ?></p>
+            <a href="semesters.php" class="btn-5 btn ">Details</a>
             </div>
         </div>
-        <div class="card w-100 mx-3">
+        <div class="bg-color card w-100 mx-3">
             <div class="card-body">
-                <p><?= $subjects ?> Subject<?= ($subjects > 1) ? 's' : '' ?></p>
-            <a href="subjects.php" class="btn btn-outline-danger">Details</a>
+                <p class="p-dashboard"><?= $subjects ?> Subject<?= ($subjects > 1) ? 's' : '' ?></p>
+            <a href="subjects.php" class="btn-5 btn ">Details</a>
             </div>
         </div>
-        <div class="card w-100 mx-3">
+        <div class="bg-color card w-100 mx-3">
             <div class="card-body">
-                <p>0 Student Lists</p>
-            <a href="" class="btn btn-outline-danger">Details</a>
+                <p class="p-dashboard">0 Student Lists</p>
+            <a href="" class="btn-5 btn ">Details</a>
 
             </div>
         </div>
@@ -96,18 +100,18 @@ $subjects = count($crud->read('subjects'));
 
     <?php  if($user['role'] == "professor") { ?>
     <div class="container d-flex justify-content-between">
-        <div class="card w-100 me-4">
+        <div class="bg-color card card-d w-100 me-4">
             <div class="card-body">
-                <p>0 Semesters</p>
-            <a href="" class="btn btn-outline-danger">More</a>
+                <p class="p-dashboard">0 Semesters</p>
+            <a href="" class="btn-4 btn btn-outline-danger">More</a>
 
             </div>
         </div>
 
-        <div class="card w-100 ms-4">
+        <div class="bg-color card w-100 ms-4">
             <div class="card-body">
-                <p>0 Student Lists</p>
-            <a href="" class="btn btn-outline-danger">More</a>
+                <p class="p-dashboard">0 Student Lists</p>
+            <a href="" class="btn-4 btn btn-outline-danger">More</a>
 
             </div>
         </div>
@@ -117,13 +121,15 @@ $subjects = count($crud->read('subjects'));
 
     <?php  if($user['role'] == "student") {?>
     <div class="container d-flex justify-content-between">
-        <div class="card w-100 me-4">
+        <div class="card bg-color w-100 me-4">
             <div class="card-body">
-               <p> 0 Subjects</p>
-            <a href="" class="btn btn-outline-danger">More</a>
+               <p class="p-dashboard"> 0 Subjects</p>
+            <a href="" class="btn-4 btn btn-outline-danger">More</a>
             </div>
         </div>
     </div>
     <?php } ?>
+
+    </div>
 </body>
 </html>

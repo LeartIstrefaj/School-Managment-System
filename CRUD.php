@@ -62,8 +62,7 @@ class CRUD{
             $sql = "UPDATE `".$table."` SET" .$this->fields($columns)." WHERE".$this->fields($conditions,"AND");
         }
         return $this->db->query($sql,array_merge(array_values($columns),array_values($conditions)));
-        // echo $sql;
-        // die();
+      
     } 
     public function delete($table,$conditions){
         $sql = "DELETE FROM `".$table."`";

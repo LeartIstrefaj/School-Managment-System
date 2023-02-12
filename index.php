@@ -210,6 +210,7 @@
 
     <script src="js/slider.js"></script>
     <script src="js/validate.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
 </body>
 
 </html>

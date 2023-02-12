@@ -69,7 +69,7 @@ function signup() {
 
   var text;
   if (fistName.trim().length <= 3) {
-    text = "Please enter valid First Name";
+    text = "Please enter valid Name";
     error_message.innerHTML = text;
     return false;
   }
