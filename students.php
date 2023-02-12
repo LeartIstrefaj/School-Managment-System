@@ -109,7 +109,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="nr_index" class="form-label">Index no</label>
-                        <input type="text" name="nr_index" class="form-control id="nr_index" />
+                        <input type="text" name="nr_index" class="form-control" id="nr_index" />
                         <input type="hidden" name="student_id" value="<?= $_GET['student_id'] ?>" />    
                     </div>
               

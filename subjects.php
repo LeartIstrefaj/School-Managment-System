@@ -21,13 +21,24 @@ $db = new Database($db_host,$db_user,$db_password);
 $crud = new CRUD($db);
 $subjects = $crud->read('subjects');
 
+$semesters = $crud->read('semester');
+$professors = $crud->read('users',['role'=> 'professor']);
+ 
+if(isset($_POST['create_btn'])){
+    $title = $_POST['title'];
+    $professor_id = $_POST['professor_id'];
+    $semester_id = $_POST['semester_id'];
+    $crud->create('subjects', ['title' => $title, 'professor_id' => $professor_id, 'semester_id' => $semester_id]);
+    header("Location: subjects.php");
 
-if(isset($_POST['submit'])){
-    // $nr_index = $_POST['nr_index'];
-    // $id = $_POST['student_id'];
-    // $user_controller->update($id, ['nr_index' => $nr_index]);
-    // header("Location: students.php");
+}
 
+if(isset($_POST['update_btn'])){
+    $title = $_POST['title'];
+    $professor_id = $_POST['professor_id'];
+    $semester_id = $_POST['semester_id'];
+    $crud->update('subjects', ['title' => $title, 'professor_id' => $professor_id, 'semester_id' => $semester_id],['id'=> $_POST['id']]);
+    header("Location: subjects.php");
 }
 
 if(isset($_GET['action']) && $_GET['action'] == 'delete'){
@@ -69,10 +80,10 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
 </div>
 
     <div class="container bg-color p-5 rounded">
-        <div class="d-flex justify-content-end mb-3">
-        <a href="#" class="btn btn-sm btn-outline-primary">+Subject</a></div>
+    <button type="button" class="create-btn btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Add Subject</button>
+        <div class="">
         <?php  if(count($subjects) > 0) {?>
-            <div class="table-responsive">
+            <div class="table-responsive mt-4">
             <table class="table table-bordered">
                 <tr>
                     <th class="color">#</th>
@@ -92,8 +103,60 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
             </table>
             </div>
         <?php } else{ ?>
-            <p>0 Subjects</p>
+            <p class="mt-4">0 Subjects</p>
         <?php } ?>
+    </div>
+
+    <!-- Create modal -->
+    <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModal" aria-hidden="true">
+        <div class="modal-dialog"> 
+            <div class="modal-content bg-color">
+                <form action="<?= $_SERVER['PHP_SELF']  ?>" method="POST">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createModal">Create/add subject</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Subject</label>
+                        <input type="text" name="title" class="form-control" id="title" /> 
+                    </div>
+                    <div class="mb-3">
+                        <label for="semester_id" class="form-label">Semester</label>
+                        <select type="text" name="semester_id" class="form-control" id="semester_id">
+                            <option value="">Select semester</option>
+                            <?php if(count($semesters)) {
+                                 foreach ($semesters as $semester) {
+                                    ?>
+                                    <option value="<?= $semester['id'] ?>"><?= $semester['title'] ?></option>
+                                <?php 
+                                    } 
+                                }
+                                ?>
+                        </select> 
+                    </div>
+                    <div class="mb-3">
+                        <label for="professor_id" class="form-label">Professor</label>
+                        <select name="professor_id" class="form-control" id="professor_id">
+                            <option value="">Select professor</option>
+                            <?php if(count($professors)) {
+                                 foreach ($professors as $professor) {
+                                    ?>
+                                    <option value="<?= $professor['id'] ?>"><?= $professor['name']." ".$professor['surname'] ?></option>
+                                <?php 
+                                    } 
+                                }
+                                ?>
+                        </select>
+                    </div>
+              
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" name="create_btn" class="btn create btn-primary">Create</button>
+                </div>
+                </form>
+            </div>
+        </div>
     </div>
 
     <!-- Update modal -->
@@ -110,11 +173,40 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
                         <label for="title" class="form-label">Subject</label>
                         <input type="text" name="title" class="form-control" id="title" /> 
                     </div>
+
+                    <div class="mb-3">
+                        <label for="semester_id" class="form-label">Semester</label>
+                        <select type="text" name="semester_id" class="form-control" id="semester_id">
+                            <option value="">Select semester</option>
+                            <?php if(count($semesters)) {
+                                 foreach ($semesters as $semester) {
+                                    ?>
+                                    <option value="<?= $semester['id'] ?>"><?= $semester['title'] ?></option>
+                                <?php 
+                                    } 
+                                }
+                                ?>
+                        </select> 
+                    </div>
+                    <div class="mb-3">
+                        <label for="professor_id" class="form-label">Professor</label>
+                        <select name="professor_id" class="form-control" id="professor_id">
+                            <option value="">Select professor</option>
+                            <?php if(count($professors)) {
+                                 foreach ($professors as $professor) {
+                                    ?>
+                                    <option value="<?= $professor['id'] ?>"><?= $professor['name']." ".$professor['surname'] ?></option>
+                                <?php 
+                                    } 
+                                }
+                                ?>
+                        </select>
+                    </div>
               
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="id" value="<?= $_GET['id'] ?>" />
-                    <button type="submit" name="update" class="btn update btn-primary">Update</button>
+                    <button type="submit" name="update_btn" class="btn update btn-primary">Update</button>
                 </div>
                 </form>
             </div>

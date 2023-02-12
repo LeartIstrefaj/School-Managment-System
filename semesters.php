@@ -21,8 +21,13 @@ $db = new Database($db_host,$db_user,$db_password);
 $crud = new CRUD($db);
 $semesters = $crud->read('semester');
 
+if(isset($_POST['create_btn'])){
+    $title = $_POST['title'];
+    $crud->create('semester', ['title' => $title]);
+    header("Location: semesters.php");
+}
 
-if(isset($_POST['submit'])){
+if(isset($_POST['update_btn'])){
     $title = $_POST['title'];
     $id = $_POST['id'];
     $crud->update('semester', ['title' => $title],['id'=> $id]);
@@ -40,7 +45,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'edit'){
 
 if(isset($_GET['action']) && $_GET['action'] == 'delete'){
     if(isset($_GET['id']) && $_GET['id'] > 0){
-        $crud->delete($_GET['id']);
+        $crud->delete('semester',['id'=> $_GET['id']]);
         header("Location: semesters.php");
     }
 }
@@ -77,9 +82,13 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
         </div>
     </div>
 
+    
     <div class="container bg-color p-5 rounded">
+        
+    <button type="button" class="create-btn btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Add Semester</button>
+        <a href="?action=create"></a>
         <?php  if(count($semesters) > 0) {?>
-            <div class="table-responsive">
+            <div class="table-responsive mt-4">
             <table class="table table-bordered">
                 <tr>
                     <th class="color">#</th>
@@ -99,9 +108,34 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
             </table>
             </div>
         <?php } else{ ?>
-            <p>0 Semesters</p>
+            <p class="mt-4">0 Semesters</p>
         <?php } ?>
     </div>
+
+    <!-- Create -->
+    <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModal" aria-hidden="true">
+        <div class="modal-dialog"> 
+            <div class="modal-content bg-color">
+                <form action="<?= $_SERVER['PHP_SELF']  ?>" method="POST">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createModal">Create/add semester</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Semester</label>
+                        <input type="text" name="title" class="form-control" id="title" />
+                    </div>
+              
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" name="create_btn" class="btn-4 create btn btn-primary">Create</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Update modal -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
@@ -122,7 +156,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="id" value="<?= $_GET['id'] ?>" />   
-                    <button type="submit" name="submit" class="btn-4 update btn btn-primary">Update</button>
+                    <button type="submit" name="update_btn" class="btn-4 update btn btn-primary">Update</button>
                 </div>
                 </form>
             </div>

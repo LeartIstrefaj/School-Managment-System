@@ -1302,6 +1302,14 @@ blockquote {
     outline: none;
     color: #fff !important;
    }
+   .create{
+    background-color: #566bc8 !important;
+    border-radius: 10px !important;
+    /* width: 40% !important; */
+    border: none;
+    outline: none;
+    color: #fff !important;
+   }
    .modal-footer{
         border: none !important;
         outline: none !important;
@@ -1320,4 +1328,9 @@ blockquote {
 }
 .error-d{
     text-align: center;
+}
+.create-btn{
+    width: 15% !important;
+    background-color: #566bc8 !important;
+    border-radius: 15px !important;
 }
