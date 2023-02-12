@@ -1310,3 +1310,14 @@ blockquote {
     border: none !important;
     outline: none !important;
 }
+.error-dir{
+    height: 100vh;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center !important;
+}
+.error-d{
+    text-align: center;
+}

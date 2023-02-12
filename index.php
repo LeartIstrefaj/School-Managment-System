@@ -159,7 +159,7 @@
                 <input class="input-control" type="text" name="name" id="name" placeholder="Enter your Name">
                 <input class="input-control" type="email" name="email" id="email" placeholder="Enter your Email Address">
                 <textarea class="input-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-                <input class="btn" type="submit" onclick="sendMail()" value="Send" id="submit">
+                <input class="btn" type="submit" value="Send" id="submit">
             </form>
         </div>
     </div>
