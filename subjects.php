@@ -46,42 +46,46 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-<body>
+<body class="bg-color-2">
     
-    <div class="container my-3">
-        <div class="d-flex justify-content-between h-100 align-items-center">
-            <div class="logo">
-                <a href="dashboard.php"><img src="img/logo.png" alt=""></a>
-                <!-- <a href="dashboard.php"><h3>School Managment</h3></a> -->
-            </div>
-            <div class="profile">
-                <p><?= $_SESSION['email'] ?>
-                <a href="?action=logout">Logout</a>
-                </p>
-            </div>
+<div class="container my-3">
+
+<div class="d-flex justify-content-between h-100 align-items-center">
+    <div class="logo">
+        <a href="dashboard.php"><img src="img/logo-footer.png" alt=""></a>
+    </div>
+    <div class="row"> 
+        <div class="d-flex justify-content-between h-100 align-items-center profile mb-4">
+            <span class="color role"><?= $_SESSION['email']?></span>
+            <!-- <span class="ms-3 color role-2"><?= $user['role'] ?></span>  -->
+            <a class="ms-3 btn btn-warning btn-2" href="?action=logout">Logout</a>
+        
         </div>
     </div>
+</div>
+</div>
 
-    <div class="container">
+    <div class="container bg-color p-5 rounded">
         <div class="d-flex justify-content-end mb-3">
         <a href="#" class="btn btn-sm btn-outline-primary">+Subject</a></div>
         <?php  if(count($subjects) > 0) {?>
             <div class="table-responsive">
             <table class="table table-bordered">
                 <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Title</th>
+                    <th class="color">#</th>
+                    <th class="color">Name</th>
+                    <th class="color"></th>
                 </tr>
                 <?php foreach($subjects as $subject){ ?>
                     <tr>
-                        <td><?= $subject['id'] ?></td>
-                        <td><?= $subject['title'] ?></td>
+                        <td class="color"><?= $subject['id'] ?></td>
+                        <td class="color"><?= $subject['title'] ?></td>
                         <td>
-                            <a href="?action=edit&id=<?= $subject['id'] ?>" class="btn btn-sm btn-primary">Edit</a>
-                            <a href="?action=delete&id=<?= $subject['id'] ?>" onclick="return confirm('Are you sure!')"  class="btn btn-sm btn-danger">Delete</a>
+                            <a href="?action=edit&id=<?= $subject['id'] ?>" class="btn update  btn-sm btn-primary">Edit</a>
+                            <a href="?action=delete&id=<?= $subject['id'] ?>" onclick="return confirm('Are you sure!')"  class=" btn delete btn-sm btn-danger">Delete</a>
                         </td>
                     </tr>
                  <?php } ?>
@@ -95,23 +99,22 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
     <!-- Update modal -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
         <div class="modal-dialog"> 
-            <div class="modal-content">
+            <div class="modal-content bg-color">
                 <form action="<?= $_SERVER['PHP_SELF']  ?>" method="POST">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editModal">Modal title</h5>
+                    <h5 class="modal-title" id="editModal">Update subjects</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="title" class="form-label">:</label>
+                        <label for="title" class="form-label">Subject</label>
                         <input type="text" name="title" class="form-control" id="title" /> 
                     </div>
               
                 </div>
                 <div class="modal-footer">
-                    <input type="hidden" name="id" value="<?= $_GET['id'] ?>" />   
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" name="update" class="btn btn-primary">Edit</button>
+                    <input type="hidden" name="id" value="<?= $_GET['id'] ?>" />
+                    <button type="submit" name="update" class="btn update btn-primary">Update</button>
                 </div>
                 </form>
             </div>

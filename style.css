@@ -1244,14 +1244,7 @@ blockquote {
     font-size: 13px;
     border-radius: 10%;
    }
-   .btn-4{
-    border-radius: 10px !important;
-        width: 30% !important;
-        background-color: #252525 !important;
-        border: none;
-        outline: none;
-        color: #fff !important;
-   }
+   
    .btn{
     border: none !important;
     outline: none !important;
@@ -1261,11 +1254,16 @@ blockquote {
     width: 100% !important;
     /* width: 30% !important; */
    }
-   .card-d{
-    width: 500px !important;
+   .card{
+    display: flex !important;
+    justify-content: stretch !important;
+    width: 100% !important;
+   }
+   #card-d{
+    width: 100% !important;
    }
 .p-dashboard{
-    font-size: large;
+    font-size: 17px !important;
     font-weight: 700;
    }
    .btn-5{
@@ -1276,4 +1274,39 @@ blockquote {
         outline: none;
         color: #fff !important;
    }
-   
+   .btn-half{
+    width: 50% !important;
+    border-radius: 10px !important;
+    background-color: #252525 !important;
+    border: none;
+    outline: none;
+    color: #fff !important;
+}
+   .btn-secondary{
+    width: 20% !important;
+    background-color: tomato !important;
+   }
+   .update{
+    background-color: #f48c06 !important;
+    border-radius: 10px !important;
+    /* width: 30% !important; */
+    border: none;
+    outline: none;
+    color: #fff !important;
+   }
+   .delete{
+    background-color: #9d0208 !important;
+    border-radius: 10px !important;
+    /* width: 40% !important; */
+    border: none;
+    outline: none;
+    color: #fff !important;
+   }
+   .modal-footer{
+        border: none !important;
+        outline: none !important;
+   }
+   .modal-header{
+    border: none !important;
+    outline: none !important;
+}

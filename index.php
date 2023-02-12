@@ -153,13 +153,13 @@
         
         <div class="contact-section" id="contact">
             
-            <form class="form" action="" method="" id="myform" onsubmit="return validate();">
+            <form class="form" method="POST" id="myform" onsubmit="return validate(); sendMail()">
                 <h2 class="contact-title">Contact Us!</h2>
                 <div id="error_message"></div>
                 <input class="input-control" type="text" name="name" id="name" placeholder="Enter your Name">
                 <input class="input-control" type="email" name="email" id="email" placeholder="Enter your Email Address">
                 <textarea class="input-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-                <input class="btn" type="submit" value="Send" id="submit">
+                <input class="btn" type="submit" onclick="sendMail()" value="Send" id="submit">
             </form>
         </div>
     </div>
@@ -210,7 +210,15 @@
 
     <script src="js/slider.js"></script>
     <script src="js/validate.js"></script>
-    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+    <script src="js/mail.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init("k-SgSB8S9JZgxC-Qd");
+    })();
+    </script>
 </body>
 
 </html>

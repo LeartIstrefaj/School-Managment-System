@@ -46,17 +46,17 @@ $subjects = count($crud->read('subjects'));
 
         <div class="d-flex justify-content-between h-100 align-items-center">
             <div class="logo">
-            <a href="dashboard.php"><img src="img/logo-footer.png" alt=""></a>
+                <a href="dashboard.php"><img src="img/logo-footer.png" alt=""></a>
             </div>
             <div class="row"> 
-            <div class="d-flex justify-content-between h-100 align-items-center profile mb-4">
-                <span class="color role"><?= $_SESSION['email']?></span>
-                <span class="ms-3 color role-2"> <?= $user['role'] ?></span> 
-                <a class="ms-3 btn btn-warning btn-2" href="?action=logout">Logout</a>
-            
+                <div class="d-flex justify-content-between h-100 align-items-center profile mb-4">
+                    <span class="color role"><?= $_SESSION['email']?></span>
+                    <span class="ms-3 color role-2"> <?= $user['role'] ?></span> 
+                    <a class="ms-3 btn btn-warning btn-2" href="?action=logout">Logout</a>
+                
+                </div>
             </div>
-</div>
-</div>
+        </div>
     </div>
 
     <?php  if($user['role'] == "admin") { ?>
@@ -100,19 +100,24 @@ $subjects = count($crud->read('subjects'));
 
     <?php  if($user['role'] == "professor") { ?>
     <div class="container d-flex justify-content-between">
-        <div class="bg-color card card-d w-100 me-4">
-            <div class="card-body">
-                <p class="p-dashboard">0 Semesters</p>
-            <a href="" class="btn-4 btn btn-outline-danger">More</a>
+        <div class="row d-flex">
+            <div class="col-lg-6 col-sm-12 d-flex">
+            <div class="bg-color card card-d w-100 py-3 mb-3">
+                <div class="card-body">
+                    <p class="p-dashboard">0 Semesters</p>
+                <a href="" class="btn-5 btn btn-outline-danger">More</a>
 
+                </div>
             </div>
-        </div>
+            </div>
+            <div class="col-sm-12 col-lg-6 d-flex">
+            <div class="bg-color card card-d w-100  py-3">
+                <div class="card-body">
+                    <p class="p-dashboard">0 Student Lists</p>
+                <a href="" class="btn-5 btn btn-outline-danger">More</a>
 
-        <div class="bg-color card w-100 ms-4">
-            <div class="card-body">
-                <p class="p-dashboard">0 Student Lists</p>
-            <a href="" class="btn-4 btn btn-outline-danger">More</a>
-
+                </div>
+            </div>
             </div>
         </div>
     </div>
@@ -121,12 +126,16 @@ $subjects = count($crud->read('subjects'));
 
     <?php  if($user['role'] == "student") {?>
     <div class="container d-flex justify-content-between">
-        <div class="card bg-color w-100 me-4">
-            <div class="card-body">
-               <p class="p-dashboard"> 0 Subjects</p>
-            <a href="" class="btn-4 btn btn-outline-danger">More</a>
+        <div class="row ">
+            <div class="col-lg-12">
+            <div class="card bg-color w-100 me-4">
+                <div class="card-body">
+                <p class="p-dashboard"> 0 Subjects</p>
+                    <a href="" class="btn-5 btn btn-outline-danger">More</a>
+                </div>
             </div>
-        </div>
+            </div>
+            </div>
     </div>
     <?php } ?>
 
