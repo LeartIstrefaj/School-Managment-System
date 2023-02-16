@@ -119,7 +119,7 @@ $prof_std_lists = count($crud->read('students_list',['professor_id' => $_SESSION
             <div class="col-sm-12 col-lg-4 d-flex">
             <div class="bg-color card card-d w-100  py-3 mb-sm-3 mb-lg-0">
                 <div class="card-body col-lg-5">
-                    <p class="p-dashboard"><?= $prof_std_lists ?> All Student</p>
+                    <p class="p-dashboard"><?= $students ?> All Student<?= ($students > 1) ? 's' : '' ?></p>
                 <a href="prof-student.php" class="btn-5 btn btn-outline-danger">Details</a>
 
                 </div>

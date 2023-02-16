@@ -27,6 +27,7 @@
            $_SESSION['loggedin'] = true;
            $_SESSION['email'] = $username;
            $_SESSION['user_id'] = $user_id;
+           $_SESSION['role'] = $user['role'];
            header("Location: dashboard.php");
         }
         else{

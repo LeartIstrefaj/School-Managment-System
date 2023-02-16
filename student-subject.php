@@ -10,6 +10,9 @@ $db_password = "";
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     header("Location: 401.php");
 }
+if(!isset($_SESSION['loggedin']) || $_SESSION['role'] != "student"){
+    header("Location: 403.php");
+}
 
 if(isset($_GET['action']) && $_GET['action'] == 'logout'){
     session_destroy();
