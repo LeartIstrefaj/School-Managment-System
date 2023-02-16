@@ -604,7 +604,18 @@ blockquote {
 
 /* Media Queries for mobile */
 @media only screen and (max-width: 600px) {
-    
+    .create-btn{
+        max-width: 45% !important;
+    }
+
+    .update{
+        background-color: #f48c06 !important;
+        border-radius: 10px !important;
+        min-width: 30% !important;
+        border: none;
+        outline: none;
+        color: #fff !important;
+       }
     .header {
         padding-left: 15px;
         padding-right: 15px;
@@ -1330,7 +1341,7 @@ blockquote {
     text-align: center;
 }
 .create-btn{
-    width: 15% !important;
+    max-width: 15% !important;
     background-color: #566bc8 !important;
     border-radius: 15px !important;
 }

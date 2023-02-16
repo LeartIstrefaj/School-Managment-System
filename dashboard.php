@@ -66,7 +66,7 @@ $prof_std_lists = count($crud->read('students_list',['professor_id' => $_SESSION
     </div>
 
     <?php  if($user['role'] == "admin") { ?>
-    <div class="container d-flex justify-content-between flex-sm-wrap flex-md-wrap flex-lg-nowrap">
+    <div class="container d-flex flex-sm-wrap flex-md-wrap flex-lg-nowrap">
         <div class="bg-color card w-100 mx-3 mb-sm-3 mb-lg-0">
             <div class="card-body">
                 <p class="color p-dashboard"><?= $students ?> Student<?= ($students > 1) ? 's' : ''?></p>
@@ -105,21 +105,21 @@ $prof_std_lists = count($crud->read('students_list',['professor_id' => $_SESSION
 
 
     <?php  if($user['role'] == "professor") { ?>
-    <div class="container d-flex justify-content-between flex-sm-wrap flex-md-wrap flex-lg-nowrap">
+    <div class="container flex-sm-wrap flex-md-wrap flex-lg-nowrap">
         <div class="row d-flex">
-            <div class="col-lg-6 col-sm-12 d-flex">
-            <div class="bg-color card card-d w-100 py-3 mb-sm-3 mb-lg-0">
-                <div class="card-body">
+            <div class="col-lg-4 col-sm-12 d-flex">
+            <div class="bg-color card card-d w-100 py-3 mb-3 mb-lg-0">
+                <div class="card-body col-lg-5">
                     <p class="p-dashboard"><?= $semesters ?> Semester<?= ($semesters > 1) ? 's' : '' ?></p>
                 <a href="semesters.php" class="btn-5 btn btn-outline-danger">Details</a>
 
                 </div>
             </div>
             </div>
-            <div class="col-sm-12 col-lg-6 d-flex">
+            <div class="col-sm-12 col-lg-4 d-flex">
             <div class="bg-color card card-d w-100  py-3 mb-sm-3 mb-lg-0">
-                <div class="card-body">
-                    <p class="p-dashboard">All Student</p>
+                <div class="card-body col-lg-5">
+                    <p class="p-dashboard"><?= $prof_std_lists ?> All Student</p>
                 <a href="prof-student.php" class="btn-5 btn btn-outline-danger">Details</a>
 
                 </div>
@@ -131,13 +131,13 @@ $prof_std_lists = count($crud->read('students_list',['professor_id' => $_SESSION
 
 
     <?php  if($user['role'] == "student") {?>
-    <div class="container d-flex justify-content-between flex-sm-wrap flex-md-wrap flex-lg-nowrap">
-        <div class="row ">
-            <div class="col-lg-12">
-            <div class="card bg-color w-100 me-4 mb-sm-3 mb-lg-0">
+    <div class="container flex-sm-wrap flex-md-wrap flex-lg-nowrap">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-5 col-md-12 col-sm-12">
+            <div class="bg-color card">
                 <div class="card-body">
-                <p class="p-dashboard"> 0 Subjects</p>
-                    <a href="" class="btn-5 btn btn-outline-danger">More</a>
+                <p class="p-dashboard"><?= $subjects ?> Subject<?= ($subjects > 1) ? 's' : '' ?></p>
+                    <a href="student-subject.php" class="btn-5 btn btn-outline-danger">List of subjects</a>
                 </div>
             </div>
             </div>
