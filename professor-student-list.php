@@ -19,14 +19,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout'){
 
 $db = new Database($db_host,$db_user,$db_password);
 $crud = new CRUD($db);
-$student_lists = $crud->read('students_list');
-
-if(isset($_GET['action']) && $_GET['action'] == 'delete'){
-    if(isset($_GET['student_id']) && $_GET['student_id'] > 0){
-        $crud->delete("users", ['id'=> $_GET['student_id']]);
-        header("Location: students-list.php");
-    }
-}
+$student_lists = $crud->read('students_list',['professor_id' => $_SESSION['user_id']]);
 
 ?>
 
@@ -60,7 +53,6 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
 </div>
 
     <div class="container  bg-color p-5 rounded">
-        <a href="create-student-list.php" class="create-btn btn btn-primary"> + Student List</a>
         <?php  if(count($student_lists) > 0) {?>
             <div class="table-responsive mt-4">
             <table class="table table-bordered">
@@ -74,8 +66,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'delete'){
                         <td class="color"><?= $list['id'] ?></td>
                         <td class="color"><?= $list['title'] ?></td>
                         <td class="">
-                            <a href="update-student-list.php?id=<?= $list['id'] ?>" class="btn-4 update btn btn-sm btn-danger">Update</a>
-                            <a href="?action=delete&id=<?= $list['id'] ?>" onclick="return confirm('Are you sure!')"  class="btn-4 delete btn btn-sm btn-danger">Delete</a>
+                            <a href="" class="btn-4 update btn btn-sm btn-danger">Grade students</a>
                         </td>
                     </tr>
                  <?php } ?>
