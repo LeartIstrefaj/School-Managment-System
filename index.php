@@ -23,6 +23,7 @@
             </ul>
         </nav>
     </header>
+
     
 
     <div class="slideshow-container">
@@ -177,7 +178,7 @@
             <div class="footer-section-2">
                 <h3 class="subtitle-footer">Footer links</h3>
                 <ul class="footer-links">
-                    <li class="footer-item"><a class="footer-link" href="/">Home</a></li>
+                    <li class="footer-item"><a class="footer-link" href="index.php">Home</a></li>
                     <li class="footer-item"><a class="footer-link" href="about.php">About Us</a></li>
                     <li class="footer-item"><a class="footer-link" href="sign-in.php">Sign In</a></li>
                 </ul>
